@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-
+import './index.css'
+import QueryPlanet from './assets/components/QueryPlanet';
+import HomePage from './assets/components/HomePage';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+
+    <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center min-h-screen">
+      <Routes>
+      <Route path="/" exact element={<HomePage />} />
+        <Route path="query" element={<QueryPlanet />} />
+      </Routes>
+
+      
+
+    
     </div>
+    
+    </BrowserRouter>
   );
 }
 
