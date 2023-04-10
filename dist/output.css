@@ -816,6 +816,18 @@ video {
   min-width: 40px;
 }
 
+.min-w-\[200px\] {
+  min-width: 200px;
+}
+
+.min-w-\[220px\] {
+  min-width: 220px;
+}
+
+.min-w-\[180px\] {
+  min-width: 180px;
+}
+
 .flex-initial {
   flex: 0 1 auto;
 }
@@ -1184,6 +1196,10 @@ video {
   .xs\:hidden {
     display: none;
   }
+
+  .xs\:w-32 {
+    width: 8rem;
+  }
 }
 
 @media (min-width: 640px) {
@@ -1278,6 +1294,10 @@ video {
 
   .lg\:min-w-\[120px\] {
     min-width: 120px;
+  }
+
+  .lg\:min-w-\[250px\] {
+    min-width: 250px;
   }
 
   .lg\:text-4xl {
