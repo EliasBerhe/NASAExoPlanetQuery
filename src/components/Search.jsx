@@ -43,9 +43,11 @@ const Search = (props) => {
 
     
   return (
-    <div className=" xs:max-w-[450px] lg:min-w-[1000px] overflow-y-scroll  max-h-[90vh] py-16">
-  {compare}
-   <table className = "table-fixed border-2 rounded-[100px]">
+    <div className=" xs:max-w-[450px]  lg:min-w-[1000px]   py-16">
+  <div className = "overflow-y-scroll  max-h-[90vh] bg-tertiary rounded-[20px]">
+
+
+   <table className = "border-2 rounded-full">
   
     <tr className='bg-secondary text-tertiary border-2'>
         <th>Planet</th>
@@ -69,7 +71,7 @@ const Search = (props) => {
 
         
         
-    
+   </div>
     </div>
   )
 }

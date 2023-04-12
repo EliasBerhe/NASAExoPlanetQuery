@@ -132,11 +132,11 @@ const QueryPlanet = () => {
   </div>
   <div className="flex w-64 bg-tertiary rounded-full px-4">
   <div className="flex items-center">
-       <label className="text-white">Discovery Year</label>
+       <label className="text-white">Discovery year</label>
        </div>
 
       <div className="flex items-center px-[10%]">
-      <select className="min-w-[40px] lg:min-w-[120px] rounded-full bg-slate-400" value ={year} onChange={handleYear}>
+      <select className="min-w-[50px] lg:min-w-[120px] rounded-full bg-slate-400" value ={year} onChange={handleYear}>
       <option></option>
       {yearsArray.map((data, index) => (
         <option key={index} value={data.discYear}>
@@ -150,7 +150,7 @@ const QueryPlanet = () => {
   </div>
   <div className="flex w-64 bg-tertiary rounded-full px-4">
   <div className="flex items-center ">
-       <label className="text-white">Discovery Faculty</label>
+       <label className="text-white">Discovery faculty</label>
        </div>
 
       <div className="flex items-center px-[10%] min-w-[180px]">
@@ -171,7 +171,7 @@ const QueryPlanet = () => {
   
    
     </div>
-    <div className={buttonPressed?"flex items-start pr-[95%]":"pt-8"}>
+    <div className={buttonPressed?"flex items-start pr-[95%]":"pt-64"}>
       <Button variant="contained" onClick={handleSubmit}>
    {buttonPressed?<a href="query">Back</a>:"Search"} 
    
