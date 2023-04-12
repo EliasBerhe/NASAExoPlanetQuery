@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './index.css'
-import QueryPlanet from './assets/components/QueryPlanet';
-import HomePage from './assets/components/HomePage';
-import Search from './assets/components/Search';
+import QueryPlanet from './components/QueryPlanet';
+import HomePage from './components/HomePage';
+import Search from './components/Search';
 function App() {
   return (
     <BrowserRouter>
