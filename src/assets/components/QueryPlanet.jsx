@@ -100,7 +100,7 @@ const QueryPlanet = () => {
     
     <div className="flex flex-col justify-center items-center h-screen min-w-[700px]">
     <div className='flex items-center'>
-      {buttonPressed?<Search hName = {hostName} year = {year} faculty={faculty} />:""}
+      {buttonPressed?<Search hName = {hostName} year = {year} faculty={faculty} render={buttonPressed} />:""}
 
       </div>
     <div className={buttonPressed?"hidden":"min-w-[700px] h-64  lg:w-[1000px]"}>
@@ -171,7 +171,7 @@ const QueryPlanet = () => {
   
    
     </div>
-    <div className={buttonPressed?"pt-0":"pt-8"}>
+    <div className={buttonPressed?"flex items-start pr-[95%]":"pt-8"}>
       <Button variant="contained" onClick={handleSubmit}>
    {buttonPressed?<a href="query">Back</a>:"Search"} 
    

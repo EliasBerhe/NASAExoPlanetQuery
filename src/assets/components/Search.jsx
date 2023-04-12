@@ -3,6 +3,7 @@ import axios from 'axios'
 const Search = (props) => {
 
     const [planetData, setData] = useState([]);
+    const [change,setC] = useState(false)
     const [parameters, setParameters] = useState([props.hName, props.year, props.faculty])
     const [searchedData, setSearcheData] = useState([]);
     useEffect(()=>{
@@ -11,6 +12,7 @@ const Search = (props) => {
             //console.log(response.data);
      
             setData(response.data)
+            setC(true)
            // console.log(yearsArray)
         })
 
@@ -21,13 +23,13 @@ const Search = (props) => {
    compare();
       
     console.log(searchedData)
-    },[])
+    },[change])
 
     const compare = () =>{
         for(let i=0; i<planetData.length;i++){
             if(planetData[i].discoverYear===props.year || props.year===""){
-                if(planetData[i].discoverYear===props.hName || props.hName===""){
-                    if(planetData[i].discoverYear===props.faculty || props.faculty===""){
+                if(planetData[i].hostName===props.hName || props.hName===""){
+                    if(planetData[i].discoveryFaculty===props.faculty || props.faculty===""){
                         setSearcheData(prevArray => [...prevArray, planetData[i]]);
                     }
                 }
@@ -41,23 +43,25 @@ const Search = (props) => {
 
     
   return (
-    <div className="min-w-[600px] min-h-[600px] rounded-[100px]">
-   <table className = "table-fixed border-2">
-
-    <tr className='text-white border-2'>
+    <div className=" xs:max-w-[450px] lg:min-w-[1000px] overflow-y-scroll  max-h-[90vh] py-16">
+  {compare}
+   <table className = "table-fixed border-2 rounded-[100px]">
+  
+    <tr className='bg-secondary text-tertiary border-2'>
         <th>Planet</th>
         <th>discoveryYear</th>
         <th>discoveryFaculty</th>
         <th>discoveryMethod</th>
         <th>hostName</th>
+    
     </tr>
     {searchedData.map((data, index) => (
-    <tr key={index}>
-       <td className='text-white text-2xl '>{data.planet}</td>
-       <td className="text-white px-16">{data.discoverYear}</td>
-       <td className="text-white px-16">{data.discoveryFaculty}</td>
-       <td className="text-white px-16">{data.discoveryMethod}</td>
-       <td className="text-white px-16">{data.hostName}</td>
+    <tr key={index} className={index%2===1?"bg-white text-tertiary":"text-white"}>
+       <td className='text-2xl '>{data.planet}</td>
+       <td className="px-16">{data.discoverYear}</td>
+       <td className="px-16">{data.discoveryFaculty}</td>
+       <td className="px-16">{data.discoveryMethod}</td>
+       <td className="px-16">{data.hostName}</td>
        </tr>
       ))}
 
