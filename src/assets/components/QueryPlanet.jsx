@@ -2,11 +2,22 @@
 import React, { useEffect,useState } from 'react'
 import { Button } from '@mui/material'
 import axios from "axios";
+import Search from './Search';
+
+
 const QueryPlanet = () => {
 
     const [yearsArray, setYearsArray] = useState([]);
     const [facultyArray, setFacultyArray] = useState([]);
     const [hostNameArray, setHostNameArray] = useState([]);
+
+
+
+    const[year, setYear] = useState("");
+    const[faculty, setFaculy] = useState("");
+    const[hostName, setHostName] = useState("");
+    const[canSearch, setCanSearch] = useState(false)
+    const[buttonPressed, setPressed] = useState(false)
    
     useEffect(()=>{
         axios.get("http://localhost:8090/years")
@@ -49,26 +60,67 @@ const QueryPlanet = () => {
         
     },[])
 
+    useEffect(()=>{
+        if(year==="" && faculty=="" && hostName ===""){
+            setCanSearch(false)
+        }
+        else{
+            setCanSearch(true)
+        }
+    })
+
+    
+    const handleSubmit =() =>{
+        if(!canSearch){
+            alert("please choose atleast one!")
+        }
+        else{
+            setPressed(true);
+        }
+       
+       
+    }
+     
+    
+
+    const handleYear = (event) => {
+        setYear(event.target.value)
+    }
+
+    const handleFaculty = (event) => {
+        setFaculy(event.target.value)
+    }
+
+    const handleHostName = (event) => {
+        setHostName(event.target.value)
+    }
 
   
   return (
     
-    <div className="flex flex-col justify-center items-center h-screen">
-         
-    <div className="w-[700px] h-64  lg:w-[1000px] h-96">
+    <div className="flex flex-col justify-center items-center h-screen min-w-[700px]">
+    <div className='flex items-center'>
+      {buttonPressed?<Search hName = {hostName} year = {year} faculty={faculty} />:""}
+
+      </div>
+    <div className={buttonPressed?"hidden":"min-w-[700px] h-64  lg:w-[1000px]"}>
       <div className=" w-[600px] h-32 px-32 pt-8 lg:w-[1000px] h-64 px-64 pt-8">
       <h1 className='text-white text-4xl lg:text-6xl  '>
      Query Exoplanets
       </h1>
       </div>
-      <div className="flex flex-row gap-5   w-[600px] h-32 lg:w-[1000px] h-64">
+      <div className="flex flex-col  gap-9   w-[600px]  lg:flex-row lg:h-32 lg:w-[1000px]  ">
+        
+
+     
       <div className="flex  w-64  bg-tertiary rounded-full px-4  ">
        <div className="flex items-center">
        <label className="text-white">Host Name</label>
        </div>
  
       <div className="flex items-center px-[10%] min-w-[200px]">
-      <select className="min-w-[50px] lg:min-w-[150px] rounded-full bg-slate-400">
+      <select className="min-w-[50px] lg:min-w-[150px] rounded-full bg-slate-400" value ={hostName} onChange={handleHostName}>
+        <option></option>
       {hostNameArray.map((data, index) => (
         <option key={index} value={data.hostName}>
           {data.hostName}
@@ -84,8 +136,8 @@ const QueryPlanet = () => {
        </div>
 
       <div className="flex items-center px-[10%]">
-      <select className="min-w-[40px] lg:min-w-[120px] rounded-full bg-slate-400">
-        
+      <select className="min-w-[40px] lg:min-w-[120px] rounded-full bg-slate-400" value ={year} onChange={handleYear}>
+      <option></option>
       {yearsArray.map((data, index) => (
         <option key={index} value={data.discYear}>
           {data.discYear}
@@ -102,7 +154,8 @@ const QueryPlanet = () => {
        </div>
 
       <div className="flex items-center px-[10%] min-w-[180px]">
-      <select className="min-w-[30px] lg:min-w-[120px] rounded-full bg-slate-400">
+      <select className="min-w-[30px] lg:min-w-[120px] rounded-full bg-slate-400" value ={faculty} onChange={handleFaculty}>
+      <option></option>
       {facultyArray.map((data, index) => (
         <option key={index} value={data.discFaculty}>
           {data.discFaculty}
@@ -118,13 +171,17 @@ const QueryPlanet = () => {
   
    
     </div>
-    <div className="flex py-8">
-      <Button variant="contained">
-    <a href="/query">Search</a>
+    <div className={buttonPressed?"pt-0":"pt-8"}>
+      <Button variant="contained" onClick={handleSubmit}>
+   {buttonPressed?<a href="query">Back</a>:"Search"} 
+   
   </Button>
-  
+
       </div>
+     
+     
   </div>
+
   )
 }
 
