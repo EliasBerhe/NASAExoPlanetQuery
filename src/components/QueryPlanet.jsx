@@ -98,28 +98,28 @@ const QueryPlanet = () => {
   
   return (
     
-    <div className="flex flex-col justify-center items-center h-screen min-w-[700px]">
+    <div className={`flex flex-col justify-center items-start h-screen min-w-[700px] lg:items-center`}>
     <div className='flex items-center'>
       {buttonPressed?<Search hName = {hostName} year = {year} faculty={faculty} render={buttonPressed} />:""}
 
       </div>
     <div className={buttonPressed?"hidden":"min-w-[700px] h-64  lg:w-[1000px]"}>
       <div className=" w-[600px] h-32 px-32 pt-8 lg:w-[1000px] h-64 px-64 pt-8">
-      <h1 className='text-white text-4xl lg:text-6xl  '>
-     Query Exoplanets
+      <h1 className='text-white text-4xl lg:text-6xl pt-32 '>
+     Query Exoplanet
       </h1>
       </div>
-      <div className="flex flex-col  gap-9   w-[600px]  lg:flex-row lg:h-32 lg:w-[1000px]  ">
+      <div className="flex flex-col gap-9  md:flex-row  lg:flex-row lg:h-32 lg:w-[1000px]  ">
         
 
      
-      <div className="flex  w-64  bg-tertiary rounded-full px-4  ">
+      <div className="flex  w-64  bg-tertiary rounded-full px-4">
        <div className="flex items-center">
        <label className="text-white">Host Name</label>
        </div>
  
       <div className="flex items-center px-[10%] min-w-[200px]">
-      <select className="min-w-[50px] lg:min-w-[150px] rounded-full bg-slate-400" value ={hostName} onChange={handleHostName}>
+      <select className="min-w-[50px] lg:min-w-[150px] md:min-w-[150px] rounded-full bg-slate-400" value ={hostName} onChange={handleHostName}>
         <option></option>
       {hostNameArray.map((data, index) => (
         <option key={index} value={data.hostName}>
@@ -171,7 +171,7 @@ const QueryPlanet = () => {
   
    
     </div>
-    <div className={buttonPressed?"flex items-start pr-[95%]":"pt-64"}>
+    <div className={buttonPressed?"flex items-start pr-[95%]":"pt-96"}>
       <Button variant="contained" onClick={handleSubmit}>
    {buttonPressed?<a href="query">Back</a>:"Search"} 
    

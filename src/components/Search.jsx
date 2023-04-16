@@ -9,7 +9,7 @@ const Search = (props) => {
     useEffect(()=>{
         axios.get("http://localhost:8090/table")
         .then((response)=>{
-            //console.log(response.data);
+            console.log(response.data);
      
             setData(response.data)
             setC(true)
@@ -43,18 +43,19 @@ const Search = (props) => {
 
     
   return (
-    <div className=" xs:max-w-[450px]  lg:min-w-[1000px]   py-16">
-  <div className = "overflow-y-scroll  max-h-[90vh] bg-tertiary rounded-[20px]">
+    <div className=" xs:max-w-[450px] lg:min-w-[1200px]   py-16">
+  <div className = "overflow-y-scroll  max-h-[70vh] bg-tertiary rounded-[20px]">
 
 
    <table className = "border-2 rounded-full">
   
-    <tr className='bg-secondary text-tertiary border-2'>
+    <tr className='sticky top-0 bg-secondary text-tertiary border-2'>
         <th>Planet</th>
         <th>discoveryYear</th>
         <th>discoveryFaculty</th>
         <th>discoveryMethod</th>
         <th>hostName</th>
+        <th>Number of Stars</th>
     
     </tr>
     {searchedData.map((data, index) => (
@@ -64,6 +65,7 @@ const Search = (props) => {
        <td className="px-16">{data.discoveryFaculty}</td>
        <td className="px-16">{data.discoveryMethod}</td>
        <td className="px-16">{data.hostName}</td>
+       <td className="px-16">{data.numOfStars}</td>
        </tr>
       ))}
 

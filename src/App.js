@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
 
-    <div className="ml-0 bg-hero-pattern bg-cover bg-no-repeat bg-center min-h-screen ">
+    <div className="ml-0 bg-hero-pattern bg-cover bg-no-repeat bg-center min-h-screen min-w-full">
       <Routes>
       <Route path="/" exact element={<HomePage />} />
         <Route path="query" element={<QueryPlanet />} />
