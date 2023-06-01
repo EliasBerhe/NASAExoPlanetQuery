@@ -5,8 +5,8 @@ const HomePage = () => {
   return (
     <div class="flex flex-col justify-center items-center h-screen">
   <div class="w-[500px] h-64  lg:w-[1000px] h-96">
-    <div class=" w-[500px] h-32 px-32 pt-8 lg:w-[1000px] h-64 px-64 pt-8">
-    <h1 className='text-white text-2xl lg:text-4xl  '>
+    <div class="flex  w-[500px] h-32 px-8 pt-16 lg:w-[1000px] h-64 px-64 pt-8">
+    <h1 className='text-white text-3xl lg:text-4xl pt-16 '>
     NASA Exoplanet Query
     </h1>
     </div>

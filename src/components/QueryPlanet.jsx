@@ -171,7 +171,7 @@ const QueryPlanet = () => {
   
    
     </div>
-    <div className={buttonPressed?"flex items-start pr-[95%]":"pt-96"}>
+    <div className={buttonPressed?"flex items-start pr-[95%]":"pt-64"}>
       <Button variant="contained" onClick={handleSubmit}>
    {buttonPressed?<a href="query">Back</a>:"Search"} 
    
